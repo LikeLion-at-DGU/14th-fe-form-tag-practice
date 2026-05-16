@@ -34,68 +34,79 @@
             <p>아래 Form을 완성하면서 입력값이 서버로 전송되는 흐름을 확인해봅시다.</p>
         </div>
 
+        <!-- TODO 1. 후기 작성 form 태그를 완성해주세요.-->
         <form
-            action="{% url 'practice:create_review' %}"
-            method="POST"
-            enctype="multipart/form-data"
+            action=""
+            method=""
+            enctype=""
             class="review-form"
         >
-            {% csrf_token %}
+            <!-- TODO 2. Django에서 POST 요청을 보낼 때 필요한 csrf_token을 작성해주세요. -->
 
             <div class="form-row">
+                <div class="form-group">
+                    <label for="reviewer_name">이름</label>
+
+                    <!-- TODO 3. 이름 input을 완성해주세요.-->
+                    <input
+                        id=""
+                        type=""
+                        name=""
+                        placeholder="예: 강근우"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="star">별점</label>
+
+                    <!-- TODO 4. 별점 select를 완성해주세요.-->
+                    <select id="" name="">
+                        <option value="">별점을 선택해주세요</option>
+                        <option value="">⭐⭐⭐⭐⭐ 5점 킹왕짱</option>
+                        <option value="">⭐⭐⭐⭐ 4점 왕짱</option>
+                        <option value="">⭐⭐⭐ 3점 짱</option>
+                        <option value="">⭐⭐ 2점 별로에요!</option>
+                        <option value="">⭐ 1점 구려요!</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="form-group">
-                <label for="reviewer_name">이름</label>
+                <label for="photo">후기 사진</label>
+
+                <!-- TODO 5. 파일 업로드 input을 완성해주세요.-->
                 <input
-                id="reviewer_name"
-                type="text"
-                name="reviewer_name"
-                placeholder="예: 강근우"
-                required
+                    id=""
+                    type=""
+                    name=""
+                    accept=""
                 >
+
+                <p class="helper-text">
+                    파일 업로드가 포함된 Form에는 enctype="multipart/form-data"가 필요합니다.
+                </p>
             </div>
 
             <div class="form-group">
-                <label for="star">별점</label>
-                <select id="star" name="star" required>
-                    <option value="">별점을 선택해주세요</option>
-                    <option value="5">⭐⭐⭐⭐⭐ 5점 킹왕짱</option>
-                    <option value="4">⭐⭐⭐⭐ 4점 왕짱</option>
-                    <option value="3">⭐⭐⭐ 3점 짱</option>
-                    <option value="2">⭐⭐ 2점 별로에요!</option>
-                    <option value="1">⭐ 1점 구려요!</option>
-                </select>
-            </div>
+                <label for="content">후기 내용</label>
+
+                <!-- TODO 6. 후기 내용 textarea를 완성해주세요.-->
+                <textarea
+                    id=""
+                    name=""
+                    placeholder="상품을 사용해본 후기를 작성해주세요."
+                ></textarea>
             </div>
 
-            <div class="form-group">
-            <label for="photo">후기 사진</label>
-            <input
-                id="photo"
-                type="file"
-                name="photo"
-                accept="image/*"
-            >
-            <p class="helper-text">
-                파일 업로드가 포함된 Form에는 enctype="multipart/form-data"가 필요합니다.
-            </p>
-            </div>
-
-            <div class="form-group">
-            <label for="content">후기 내용</label>
-            <textarea
-                id="content"
-                name="content"
-                placeholder="상품을 사용해본 후기를 작성해주세요."
-                required
-            ></textarea>
-            </div>
-
-            <button id="review-button" type="submit" class="submit-button" disabled>
-            후기 등록하기
+            <!-- TODO 7. 후기 등록 버튼을 완성해주세요.-->
+            <button id="review-button" type="" class="submit-button">
+                후기 등록하기
             </button>
         </form>
     </section>
 
+
+    <!-- 실습 3. 후기 불러오기 -->
     <section class="review-list-section">
         <div class="section-title">
             <h2>작성된 후기</h2>
@@ -103,50 +114,61 @@
         </div>
 
         <div class="review-list">
-            {% for review in reviews %}
+            <!-- DB에 저장된 후기를 불러와 봅시다! -->
+
             <div class="review-card">
-                {% if review.photo %}
-                <img src="{{ review.photo.url }}" alt="후기 사진" class="review-photo">
-                {% else %}
+
+                <img src="" alt="후기 사진" class="review-photo">
+
                 <div class="review-photo empty-photo">No Image</div>
-                {% endif %}
+
 
                 <div class="review-content">
-                <div class="review-header">
-                    <strong>{{ review.reviewer_name }}</strong>
-                    <span>{{ review.star }}점</span>
-                </div>
+                    <div class="review-header">
+                        <strong></strong>
+                        <span></span>
+                    </div>
 
-                <p>{{ review.content }}</p>
-                <small>{{ review.created_at|date:"Y-m-d H:i" }}</small>
+                    <p> </p>
+                    <small> </small>
                 </div>
             </div>
-            {% empty %}
+
             <div class="empty-review">
                 아직 작성된 후기가 없습니다. 첫 번째 후기를 작성해보세요!
             </div>
-            {% endfor %}
+
         </div>
     </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const nameInput = document.getElementById("reviewer_name");
-            const starSelect = document.getElementById("star");
-            const contentTextarea = document.getElementById("content");
-            const reviewButton = document.getElementById("review-button");
+            // HTML 요소를 JavaScript로 가져와주세요.
+            const nameInput = document.getElementById("");
+            const starSelect = document.getElementById("");
+            const contentTextarea = document.getElementById("");
+            const reviewButton = document.getElementById("");
 
             function validateReviewForm() {
-                const reviewerName = nameInput.value.trim();
-                const star = starSelect.value;
-                const content = contentTextarea.value.trim();
+                // 각 입력값을 가져와주세요
+                // - input과 textarea는 value.trim()을 사용하면 앞뒤 공백을 제거할 수 있습니다.
+                // - select는 value를 사용합니다.
+                const reviewerName = "";
+                const star = "";
+                const content = "";
 
-                const isValid =
-                    reviewerName.length > 0 &&
-                    star !== "" &&
-                    content.length > 0;
+                // 버튼 활성화 조건을 작성해주세요.
+                // 조건:
+                // - 이름이 비어 있지 않음
+                // - 별점을 선택함
+                // - 후기 내용이 비어 있지 않음
+                const isValid = false;
 
-                reviewButton.disabled = !isValid;
+                // isValid 값에 따라 버튼 disabled 상태를 바꿔주세요.
+                // 힌트:
+                // - true이면 비활성화
+                // - false이면 활성화
+                reviewButton.disabled = true;
 
                 if (isValid) {
                     reviewButton.classList.add("active");
@@ -155,9 +177,13 @@
                 }
             }
 
-            nameInput.addEventListener("input", validateReviewForm);
-            starSelect.addEventListener("change", validateReviewForm);
-            contentTextarea.addEventListener("input", validateReviewForm);
+            // 각 입력 요소에 이벤트를 연결해주세요.
+            // 힌트:
+            // - input, textarea는 "input" 이벤트
+            // - select는 "change" 이벤트
+            nameInput.addEventListener("", validateReviewForm);
+            starSelect.addEventListener("", validateReviewForm);
+            contentTextarea.addEventListener("", validateReviewForm);
         });
     </script>
 
